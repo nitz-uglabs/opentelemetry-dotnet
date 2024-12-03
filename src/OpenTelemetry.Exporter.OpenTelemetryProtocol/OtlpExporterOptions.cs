@@ -150,7 +150,7 @@ public class OtlpExporterOptions : IOtlpExporterOptions
     /// Note: Only applicable when <see cref="OtlpExportProtocol.HttpProtobuf"/>
     /// is used.
     /// </remarks>
-    internal bool AppendSignalPathToEndpoint { get; private set; } = true;
+    public bool AppendSignalPathToEndpoint { get; set; } = true;
 
     internal bool HasData
         => this.protocol.HasValue

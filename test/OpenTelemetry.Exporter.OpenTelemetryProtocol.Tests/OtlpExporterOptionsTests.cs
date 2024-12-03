@@ -139,6 +139,21 @@ public class OtlpExporterOptionsTests : IDisposable
     }
 
     [Fact]
+    public void OtlpExporterOptions_PublicGetterSetter()
+    {
+        var options = new OtlpExporterOptions();
+        options.Endpoint = new Uri("http://localhost:200");
+        options.Protocol = OtlpExportProtocol.HttpProtobuf;
+
+        Assert.Equal(new Uri("http://localhost:200"), options.Endpoint);
+        Assert.False(options.AppendSignalPathToEndpoint);
+
+        options.AppendSignalPathToEndpoint = true;
+        Assert.True(options.AppendSignalPathToEndpoint);
+
+    }
+
+    [Fact]
     public void OtlpExporterOptions_EndpointGetterUsesProtocolWhenNull()
     {
         var options = new OtlpExporterOptions();
